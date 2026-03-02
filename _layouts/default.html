@@ -1,44 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncatewords: 50 }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-</head>
-<body>
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="{{ '/' | relative_url }}" class="site-logo">Vishal Lohiya</a>
-      <div class="nav-links">
-        <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
-        <a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>Blog</a>
-        <a href="{{ '/about' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>About</a>
-      </div>
-    </div>
-  </nav>
+Vishal Lohiya
+Home Blog About
+{{ content }}
+Intuition first. Formulas second.
 
-  <main class="site-main">
-    {{ content }}
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-philosophy">Intuition first. Formulas second.</p>
-      <div class="footer-links">
-        {% if site.social.github != "" %}<a href="https://github.com/{{ site.social.github }}" target="_blank">GitHub</a>{% endif %}
-        {% if site.social.twitter != "" %}<a href="https://x.com/{{ site.social.twitter }}" target="_blank">Twitter/X</a>{% endif %}
-        {% if site.social.linkedin != "" %}<a href="https://linkedin.com/in/{{ site.social.linkedin }}" target="_blank">LinkedIn</a>{% endif %}
-        {% if site.social.instagram != "" %}<a href="https://instagram.com/{{ site.social.instagram }}" target="_blank">Instagram</a>{% endif %}
-        {% if site.social.youtube != "" %}<a href="https://youtube.com/{{ site.social.youtube }}" target="_blank">YouTube</a>{% endif %}
-        {% if site.social.substack != "" %}<a href="https://{{ site.social.substack }}.substack.com" target="_blank">Substack</a>{% endif %}
-      </div>
-      <p class="footer-copy">&copy; {{ 'now' | date: '%Y' }} {{ site.author.name }}</p>
-    </div>
-  </footer>
-</body>
-</html>
+{% if site.social.github != "" %}GitHub{% endif %} {% if site.social.twitter != "" %}Twitter/X{% endif %} {% if site.social.linkedin != "" %}LinkedIn{% endif %} {% if site.social.instagram != "" %}Instagram{% endif %} {% if site.social.youtube != "" %}YouTube{% endif %} {% if site.social.substack != "" %}Substack{% endif %}
+© {{ 'now' | date: '%Y' }} {{ site.author.name }}
