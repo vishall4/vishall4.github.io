@@ -8,12 +8,12 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="{{ '/' | relative_url }}" class="site-logo">VL<span class="dot">.</span></a>
+      <a href="{{ '/' | relative_url }}" class="site-logo">Vishal Lohiya</a>
       <div class="nav-links">
         <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
         <a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>Blog</a>
@@ -28,7 +28,7 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="footer-philosophy">{{ site.description }}</p>
+      <p class="footer-philosophy">Intuition first. Formulas second.</p>
       <div class="footer-links">
         {% if site.social.github != "" %}<a href="https://github.com/{{ site.social.github }}" target="_blank">GitHub</a>{% endif %}
         {% if site.social.twitter != "" %}<a href="https://x.com/{{ site.social.twitter }}" target="_blank">Twitter/X</a>{% endif %}
