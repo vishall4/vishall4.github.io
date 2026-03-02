@@ -1,0 +1,16 @@
+title: Vishal Lohiya
+description: "Notes, breakdowns, and findings on the fundamentals of data science and ML."
+
+author:
+  name: Vishal Lohiya
+
+social:
+  github: "vishall4"
+  twitter: "vishallohiya77"
+  linkedin: ""
+  instagram: ""
+  youtube: ""
+  substack: ""
+
+markdown: kramdown
+permalink: /:title/
