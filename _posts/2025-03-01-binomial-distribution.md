@@ -6,9 +6,45 @@ tags: [Mathematics, Probability, Statistics]
 excerpt_text: "Most distributions in probability and statistics begin here. It's discrete, it's built from a coin toss, and everything else grows from it."
 ---
 
-Most of the distributions you'll encounter in probability and statistics begin with the binomial distribution. It's a discrete distribution — and here's something worth keeping in mind: when you add up infinitely many discrete steps, you start approaching something continuous. That idea will matter later.
+<style>
+.bi-title-anim { text-align: center; margin: 0 0 2rem; }
+.bi-title-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 2.1rem; font-weight: 700; color: #242424; display: inline-flex; align-items: baseline; gap: 0; letter-spacing: -0.02em; line-height: 1.2; }
+.bi-box-wrap { position: relative; display: inline-flex; align-items: baseline; cursor: pointer; }
+.bi-text { display: inline-block; padding: 2px 6px; border: 2px solid #242424; border-radius: 4px; font-weight: 700; position: relative; z-index: 2; background: #fff; transition: border-color 0.3s, color 0.3s; }
+.bi-box-wrap:hover .bi-text, .bi-box-wrap.open .bi-text { border-color: #534AB7; color: #534AB7; }
+.bi-lid { position: absolute; top: -8px; left: 50%; transform: translateX(-50%) rotateX(0deg); transform-origin: bottom center; width: 52px; height: 10px; background: #242424; border-radius: 3px 3px 0 0; z-index: 3; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s, background 0.3s; }
+.bi-box-wrap:hover .bi-lid, .bi-box-wrap.open .bi-lid { transform: translateX(-50%) rotateX(-120deg) translateY(-12px); opacity: 0.3; background: #534AB7; }
+.bi-people { position: absolute; top: -4px; left: 50%; transform: translateX(-50%) translateY(0px) scale(0); opacity: 0; font-size: 20px; white-space: nowrap; z-index: 1; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s, opacity 0.3s ease 0.15s; pointer-events: none; }
+.bi-box-wrap:hover .bi-people, .bi-box-wrap.open .bi-people { transform: translateX(-50%) translateY(-32px) scale(1); opacity: 1; }
+.bi-label { position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.7rem; color: #6b6b6b; opacity: 0; transition: opacity 0.3s ease 0.25s; white-space: nowrap; }
+.bi-box-wrap:hover .bi-label, .bi-box-wrap.open .bi-label { opacity: 1; }
+</style>
 
-But first, the name itself. **Bi**nomial. **Bi** means two. **Nomial** means terms. Two things. Two outcomes. That's the entire idea. 👤👤
+<div class="bi-title-anim">
+  <div class="bi-title-text">
+    <span class="bi-box-wrap" id="biBox">
+      <span class="bi-lid"></span>
+      <span class="bi-text">Bi</span>
+      <span class="bi-people">😊😊</span>
+      <span class="bi-label">two outcomes</span>
+    </span><span>nomial Distribution</span>
+  </div>
+</div>
+
+<script>
+var box = document.getElementById('biBox');
+var opened = false;
+box.addEventListener('click', function() {
+  opened = !opened;
+  if (opened) { box.classList.add('open'); } else { box.classList.remove('open'); }
+});
+setTimeout(function() {
+  box.classList.add('open');
+  setTimeout(function() { box.classList.remove('open'); }, 2000);
+}, 800);
+</script>
+
+Most of the distributions you'll encounter in probability and statistics begin with the binomial distribution. It's a discrete distribution — and here's something worth keeping in mind: when you add up infinitely many discrete steps, you start approaching something continuous. That idea will matter later.
 
 ---
 
