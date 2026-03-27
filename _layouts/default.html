@@ -13,7 +13,7 @@
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="{{ '/' | relative_url }}" class="site-logo">Vishal Lohiya</a>
+      <a href="{{ '/' | relative_url }}" class="site-logo">Vishal</a>
       <div class="nav-links">
         <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
         <a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>Blog</a>
@@ -36,7 +36,7 @@
         {% if site.social.youtube != "" %}<a href="https://youtube.com/{{ site.social.youtube }}" target="_blank">YouTube</a>{% endif %}
         {% if site.social.substack != "" %}<a href="https://{{ site.social.substack }}.substack.com" target="_blank">Substack</a>{% endif %}
       </div>
-      <p class="footer-copy">&copy; {{ 'now' | date: '%Y' }} {{ site.author.name }}</p>
+      <p class="footer-copy">&copy; {{ 'now' | date: '%Y' }} Vishal</p>
     </div>
   </footer>
 </body>
