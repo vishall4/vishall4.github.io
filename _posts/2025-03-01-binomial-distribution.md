@@ -2,7 +2,7 @@
 layout: post
 title: "Binomial Distribution"
 date: 2025-03-01
-tags: [Mathematics, Probability, Statistics]
+tags: [Mathematics, Probability, Statistics, Data Science, Machine Learning]
 excerpt_text: "Most distributions in probability and statistics begin here. It's discrete, it's built from a coin toss, and everything else grows from it."
 ---
 
