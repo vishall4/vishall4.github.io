@@ -361,6 +361,16 @@ The answer: push n to infinity while keeping the average rate constant. The form
 
 *Next: [Poisson Is Just Binomial Taken to Infinity](/poisson-distribution/)*
 
+<div style="text-align:center;padding:2rem 0;margin-top:1rem;">
+  <div style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.78rem;color:#6b6b6b;margin-bottom:.75rem;">March 01, 2025</div>
+  <div style="display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;">
+    <span style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.72rem;color:#6b6b6b;background:#f9f9f9;padding:4px 12px;border-radius:10px;">Mathematics</span>
+    <span style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.72rem;color:#6b6b6b;background:#f9f9f9;padding:4px 12px;border-radius:10px;">Probability</span>
+    <span style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.72rem;color:#6b6b6b;background:#f9f9f9;padding:4px 12px;border-radius:10px;">Statistics</span>
+    <span style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.72rem;color:#6b6b6b;background:#f9f9f9;padding:4px 12px;border-radius:10px;">Data Science</span>
+    <span style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.72rem;color:#6b6b6b;background:#f9f9f9;padding:4px 12px;border-radius:10px;">Machine Learning</span>
+  </div>
+</div>
 ---
 
 <div class="qz">
