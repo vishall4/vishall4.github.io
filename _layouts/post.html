@@ -11,16 +11,6 @@ layout: default
   </div>
 
   <footer class="post-footer">
-    <div class="post-meta" style="margin-bottom:1rem;">
-      <time>{{ page.date | date: "%B %d, %Y" }}</time>
-      {% if page.tags %}
-      <div class="post-tags">
-        {% for tag in page.tags %}
-        <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div>
     <div class="post-nav">
       {% if page.previous.url %}
       <a href="{{ page.previous.url | relative_url }}" class="post-nav-prev">
