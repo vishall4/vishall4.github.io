@@ -7,7 +7,7 @@ excerpt_text: "Most distributions in probability and statistics begin here. It's
 ---
 
 <style>
-.post-title{display:none}
+.post-title{display:none !important}
 .bi-title-anim{text-align:center;margin:-1rem 0 2rem}
 .bi-title-text{font-family:'Source Serif 4',Georgia,serif;font-size:2.1rem;font-weight:700;color:#242424;display:inline-flex;align-items:baseline;gap:0;letter-spacing:-0.02em;line-height:1.2}
 .bi-box-wrap{position:relative;display:inline-flex;align-items:baseline;cursor:pointer}
@@ -22,37 +22,46 @@ excerpt_text: "Most distributions in probability and statistics begin here. It's
 .mascot-2{background:#E1F5EE;color:#0F6E56;border:1.5px solid #5DCAA5}
 .bi-label{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.7rem;color:#6b6b6b;opacity:0;transition:opacity .3s ease .25s;white-space:nowrap}
 .bi-box-wrap:hover .bi-label,.bi-box-wrap.open .bi-label{opacity:1}
-.quiz-wrap{margin-top:3rem;padding-top:2rem;border-top:1px solid #e6e6e6}
-.quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #f2f2f2}
-.quiz-title{font-family:'Source Serif 4',Georgia,serif;font-size:1.4rem;font-weight:700;color:#242424}
-.quiz-score{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.85rem;color:#6b6b6b;display:none}
-.quiz-score span{font-weight:600;color:#242424;font-size:1.1rem}
-.quiz-score.visible{display:block}
-.quiz-tier{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.7rem;font-weight:500;color:#6b6b6b;text-transform:uppercase;letter-spacing:.08em;margin:1.5rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #f2f2f2}
-.q-card{margin-bottom:1.25rem}
-.q-text{font-family:'Source Serif 4',Georgia,serif;font-size:1rem;color:#242424;margin-bottom:.6rem;line-height:1.6}
-.q-num{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.75rem;font-weight:500;color:#6b6b6b;margin-bottom:.25rem}
-.q-options{display:flex;flex-direction:column;gap:6px}
-.q-opt{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.85rem;padding:8px 12px;border:1px solid #e6e6e6;border-radius:6px;cursor:pointer;color:#242424;background:#fff;transition:border-color .15s,background .15s;line-height:1.5}
-.q-opt:hover:not(.locked){border-color:#bbb;background:#f9f9f9}
-.q-opt.selected{border-color:#534AB7;background:#EEEDFE;color:#3C3489}
-.q-opt.locked{cursor:default}
-.q-opt.correct{border-color:#1D9E75;background:#E1F5EE;color:#085041}
-.q-opt.wrong{border-color:#E24B4A;background:#FCEBEB;color:#791F1F}
-.q-opt.correct.locked,.q-opt.wrong.locked{opacity:1}
-.q-opt.locked:not(.correct):not(.wrong):not(.selected){opacity:.5}
-.q-explain{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.82rem;color:#6b6b6b;margin-top:.5rem;line-height:1.5;display:none;padding:8px 12px;background:#f9f9f9;border-radius:6px}
-.q-explain.show{display:block}
-.quiz-submit{text-align:center;margin-top:2rem}
-.quiz-submit button{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.9rem;font-weight:500;padding:10px 28px;border:1px solid #242424;border-radius:6px;background:#242424;color:#fff;cursor:pointer;transition:opacity .15s}
-.quiz-submit button:hover{opacity:.85}
-.quiz-submit button:disabled{opacity:.4;cursor:default}
-.quiz-result{text-align:center;padding:1.5rem;margin-top:1.5rem;border:1px solid #e6e6e6;border-radius:8px;display:none}
-.quiz-result.show{display:block}
-.quiz-result-score{font-family:'Source Serif 4',Georgia,serif;font-size:2rem;font-weight:700}
-.quiz-result-label{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.85rem;color:#6b6b6b;margin-top:.25rem}
-.quiz-reset{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.82rem;padding:8px 20px;border:1px solid #e6e6e6;border-radius:6px;background:#fff;color:#242424;cursor:pointer;margin-top:1rem;transition:border-color .15s}
-.quiz-reset:hover{border-color:#bbb}
+.qz{margin-top:3rem;padding-top:2rem;border-top:1px solid #e6e6e6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.qz-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid #f2f2f2}
+.qz-title{font-family:'Source Serif 4',Georgia,serif;font-size:1.4rem;font-weight:700;color:#242424}
+.qz-score{font-size:.85rem;color:#6b6b6b;display:none}
+.qz-score.vis{display:block}
+.qz-score b{color:#242424;font-size:1.1rem}
+.qz-tabs{display:flex;gap:0;margin-bottom:1.25rem;border-bottom:1px solid #e6e6e6}
+.qz-tab{flex:1;text-align:center;padding:8px 0;font-size:.8rem;font-weight:500;color:#6b6b6b;cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.qz-tab:hover{color:#242424}
+.qz-tab.active{color:#242424;border-bottom-color:#242424}
+.qz-tab .tc{font-size:.7rem;color:#6b6b6b;margin-left:4px}
+.qz-panel{display:none}
+.qz-panel.active{display:block}
+.qc{margin-bottom:1.25rem}
+.qc-num{font-size:.75rem;font-weight:500;color:#6b6b6b;margin-bottom:4px}
+.qc-text{font-family:'Source Serif 4',Georgia,serif;font-size:1rem;color:#242424;margin-bottom:8px;line-height:1.6}
+.qc-opts{display:flex;flex-direction:column;gap:5px}
+.qc-o{font-size:.85rem;padding:8px 12px;border:1px solid #e6e6e6;border-radius:6px;cursor:pointer;color:#242424;background:#fff;transition:border-color .15s,background .15s;line-height:1.4}
+.qc-o:hover:not(.lk){border-color:#bbb;background:#f9f9f9}
+.qc-o.sel{border-color:#534AB7;background:#EEEDFE;color:#3C3489}
+.qc-o.lk{cursor:default}
+.qc-o.ok{border-color:#1D9E75;background:#E1F5EE;color:#085041}
+.qc-o.no{border-color:#E24B4A;background:#FCEBEB;color:#791F1F}
+.qc-o.lk:not(.ok):not(.no):not(.sel){opacity:.45}
+.qc-ex{font-size:.82rem;color:#6b6b6b;margin-top:6px;line-height:1.5;display:none;padding:8px 12px;background:#f9f9f9;border-radius:6px}
+.qc-ex.sh{display:block}
+.qz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid #f2f2f2}
+.qz-nav button{font-size:.8rem;font-weight:500;padding:8px 20px;border:1px solid #e6e6e6;border-radius:6px;background:#fff;color:#242424;cursor:pointer;transition:border-color .15s}
+.qz-nav button:hover{border-color:#bbb}
+.qz-nav button:disabled{opacity:.3;cursor:default}
+.qz-pg{font-size:.75rem;color:#6b6b6b}
+.qz-check{text-align:center;margin-top:1.25rem}
+.qz-check button{font-size:.9rem;font-weight:500;padding:10px 28px;border:none;border-radius:6px;background:#242424;color:#fff;cursor:pointer}
+.qz-check button:disabled{opacity:.35;cursor:default}
+.qz-check button:hover:not(:disabled){opacity:.85}
+.qz-result{text-align:center;padding:1.5rem;margin-top:1.25rem;border:1px solid #e6e6e6;border-radius:8px;display:none}
+.qz-result.sh{display:block}
+.qz-result-s{font-family:'Source Serif 4',Georgia,serif;font-size:2rem;font-weight:700}
+.qz-result-l{font-size:.85rem;color:#6b6b6b;margin-top:4px}
+.qz-result button{margin-top:12px;font-size:.82rem;padding:8px 20px;border:1px solid #e6e6e6;border-radius:6px;background:#fff;color:#242424;cursor:pointer}
 </style>
 
 <div class="bi-title-anim">
@@ -354,187 +363,135 @@ The answer: push n to infinity while keeping the average rate constant. The form
 
 ---
 
-<div class="quiz-wrap">
-  <div class="quiz-header">
-    <div class="quiz-title">Test Your Understanding</div>
-    <div class="quiz-score" id="scoreDisplay"><span id="score">0</span> / <span id="total">6</span></div>
-  </div>
-  <p style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.85rem;color:#6b6b6b;margin-bottom:1rem;">Answer all 6 questions, then check your score. No peeking.</p>
+<div class="qz">
+<div class="qz-head">
+<div class="qz-title">Test Your Understanding</div>
+<div class="qz-score" id="sc"><b id="sv">0</b> / 12</div>
+</div>
+<p style="font-size:.85rem;color:#6b6b6b;margin-bottom:1rem;">Answer all 12 questions, then check your score. No peeking.</p>
 
-  <div class="quiz-tier">Easy</div>
+<div class="qz-tabs">
+<div class="qz-tab active" onclick="goTab(0)">Easy<span class="tc" id="tc0">0/4</span></div>
+<div class="qz-tab" onclick="goTab(1)">Medium<span class="tc" id="tc1">0/4</span></div>
+<div class="qz-tab" onclick="goTab(2)">Hard<span class="tc" id="tc2">0/4</span></div>
+</div>
 
-  <div class="q-card" data-correct="2">
-    <div class="q-num">Q1</div>
-    <div class="q-text">You toss a fair coin 3 times. What is the probability of getting exactly 2 heads?</div>
-    <div class="q-options">
-      <div class="q-opt" data-i="0">1/8</div>
-      <div class="q-opt" data-i="1">1/4</div>
-      <div class="q-opt" data-i="2">3/8</div>
-      <div class="q-opt" data-i="3">1/2</div>
-    </div>
-    <div class="q-explain">C(3,2) × 0.5² × 0.5¹ = 3 × 0.25 × 0.5 = 3/8. Three ways to place 2 heads in 3 tosses, each arrangement has probability 1/8.</div>
-  </div>
+<div class="qz-panel active" id="p0">
+<div class="qc" data-a="2"><div class="qc-num">Q1</div><div class="qc-text">You toss a fair coin 3 times. What is the probability of getting exactly 2 heads?</div><div class="qc-opts"><div class="qc-o" data-i="0">1/8</div><div class="qc-o" data-i="1">1/4</div><div class="qc-o" data-i="2">3/8</div><div class="qc-o" data-i="3">1/2</div></div><div class="qc-ex">C(3,2) × 0.5² × 0.5¹ = 3 × 0.25 × 0.5 = 3/8.</div></div>
+<div class="qc" data-a="1"><div class="qc-num">Q2</div><div class="qc-text">A coin has P(heads) = 0.5. You toss it 6 times. What is the expected number of heads?</div><div class="qc-opts"><div class="qc-o" data-i="0">2</div><div class="qc-o" data-i="1">3</div><div class="qc-o" data-i="2">4</div><div class="qc-o" data-i="3">6</div></div><div class="qc-ex">Mean = np = 6 × 0.5 = 3.</div></div>
+<div class="qc" data-a="0"><div class="qc-num">Q3</div><div class="qc-text">You roll a die once. Either you get a 6 (success) or you don't. Is this a Bernoulli trial?</div><div class="qc-opts"><div class="qc-o" data-i="0">Yes — one trial, two outcomes, fixed probability</div><div class="qc-o" data-i="1">No — a die has 6 outcomes, not 2</div><div class="qc-o" data-i="2">Only if the die is fair</div><div class="qc-o" data-i="3">Only if you roll it multiple times</div></div><div class="qc-ex">Yes. Success = getting a 6, failure = not getting a 6. One trial, two outcomes, fixed p = 1/6.</div></div>
+<div class="qc" data-a="2"><div class="qc-num">Q4</div><div class="qc-text">A basketball player makes 70% of free throws. She shoots 10. What is P(exactly 7)?</div><div class="qc-opts"><div class="qc-o" data-i="0">0.70</div><div class="qc-o" data-i="1">0.15</div><div class="qc-o" data-i="2">≈ 0.267</div><div class="qc-o" data-i="3">≈ 0.117</div></div><div class="qc-ex">C(10,7) × 0.7⁷ × 0.3³ = 120 × 0.0824 × 0.027 ≈ 0.267.</div></div>
+</div>
 
-  <div class="q-card" data-correct="1">
-    <div class="q-num">Q2</div>
-    <div class="q-text">A coin has P(heads) = 0.5. You toss it 6 times. What is the expected number of heads?</div>
-    <div class="q-options">
-      <div class="q-opt" data-i="0">2</div>
-      <div class="q-opt" data-i="1">3</div>
-      <div class="q-opt" data-i="2">4</div>
-      <div class="q-opt" data-i="3">6</div>
-    </div>
-    <div class="q-explain">Mean = np = 6 × 0.5 = 3. On average, you'd expect 3 heads in 6 fair coin tosses.</div>
-  </div>
+<div class="qz-panel" id="p1">
+<div class="qc" data-a="3"><div class="qc-num">Q5</div><div class="qc-text">You toss a biased coin (P(heads) = 0.3) exactly 5 times. What is P(at least 1 head)?</div><div class="qc-opts"><div class="qc-o" data-i="0">0.30</div><div class="qc-o" data-i="1">0.50</div><div class="qc-o" data-i="2">0.85</div><div class="qc-o" data-i="3">≈ 0.83</div></div><div class="qc-ex">P(at least 1) = 1 − P(0 heads) = 1 − 0.7⁵ = 1 − 0.168 ≈ 0.832. Complement trick.</div></div>
+<div class="qc" data-a="1"><div class="qc-num">Q6</div><div class="qc-text">A factory has 5% defect rate. You inspect 20 bulbs. What is P(exactly 0 defective)?</div><div class="qc-opts"><div class="qc-o" data-i="0">0.50</div><div class="qc-o" data-i="1">≈ 0.358</div><div class="qc-o" data-i="2">0.95</div><div class="qc-o" data-i="3">≈ 0.05</div></div><div class="qc-ex">P(X=0) = C(20,0) × 0.05⁰ × 0.95²⁰ = 0.95²⁰ ≈ 0.358.</div></div>
+<div class="qc" data-a="1"><div class="qc-num">Q7</div><div class="qc-text">Two students toss a fair coin 10 times. A gets 4 heads, B gets 7. Which is more probable?</div><div class="qc-opts"><div class="qc-o" data-i="0">4 heads is more probable</div><div class="qc-o" data-i="1">Both are equally probable</div><div class="qc-o" data-i="2">7 heads is more probable</div><div class="qc-o" data-i="3">Can't determine</div></div><div class="qc-ex">C(10,4) = C(10,7) = 120 by symmetry. Same p = 0.5, so both have the exact same probability.</div></div>
+<div class="qc" data-a="0"><div class="qc-num">Q8</div><div class="qc-text">If X ~ B(n, p), mean = 12, variance = 3. What are n and p?</div><div class="qc-opts"><div class="qc-o" data-i="0">n = 16, p = 0.75</div><div class="qc-o" data-i="1">n = 48, p = 0.25</div><div class="qc-o" data-i="2">n = 12, p = 0.75</div><div class="qc-o" data-i="3">n = 16, p = 0.25</div></div><div class="qc-ex">np = 12, np(1−p) = 3. So 12(1−p) = 3 → p = 0.75. Then n = 16.</div></div>
+</div>
 
-  <div class="quiz-tier">Medium</div>
+<div class="qz-panel" id="p2">
+<div class="qc" data-a="2"><div class="qc-num">Q9</div><div class="qc-text">You toss a fair coin 100 times. P(exactly 50 heads) is the most likely single outcome. Is it greater or less than 10%?</div><div class="qc-opts"><div class="qc-o" data-i="0">Greater than 10%</div><div class="qc-o" data-i="1">Exactly 10%</div><div class="qc-o" data-i="2">Less than 10% (about 8%)</div><div class="qc-o" data-i="3">Less than 1%</div></div><div class="qc-ex">P(X=50) ≈ 0.080. The peak is still low because outcomes spread across 101 values. Being the peak doesn't mean being likely.</div></div>
+<div class="qc" data-a="2"><div class="qc-num">Q10</div><div class="qc-text">20-question MCQ, 4 options each, pure guessing. Expected score?</div><div class="qc-opts"><div class="qc-o" data-i="0">10</div><div class="qc-o" data-i="1">4</div><div class="qc-o" data-i="2">5</div><div class="qc-o" data-i="3">2.5</div></div><div class="qc-ex">P(correct) = 1/4. Expected = np = 20 × 0.25 = 5. Guessing gets 25% on average.</div></div>
+<div class="qc" data-a="1"><div class="qc-num">Q11</div><div class="qc-text">At what value of p is the variance of B(n,p) maximized?</div><div class="qc-opts"><div class="qc-o" data-i="0">p = 0.25</div><div class="qc-o" data-i="1">p = 0.5</div><div class="qc-o" data-i="2">p = 0.75</div><div class="qc-o" data-i="3">p = 1.0</div></div><div class="qc-ex">Variance = np(1−p). Maximize p(1−p): derivative = 1−2p = 0 → p = 0.5. Max uncertainty = equally likely outcomes.</div></div>
+<div class="qc" data-a="3"><div class="qc-num">Q12</div><div class="qc-text">Why does the sum of all binomial probabilities equal 1? Which theorem?</div><div class="qc-opts"><div class="qc-o" data-i="0">Central limit theorem</div><div class="qc-o" data-i="1">Law of large numbers</div><div class="qc-o" data-i="2">Bayes' theorem</div><div class="qc-o" data-i="3">Binomial theorem: (p + (1−p))ⁿ = 1</div></div><div class="qc-ex">Binomial theorem: (a+b)ⁿ = Σ C(n,k)aᵏbⁿ⁻ᵏ. Set a=p, b=(1−p): sum = 1ⁿ = 1.</div></div>
+</div>
 
-  <div class="q-card" data-correct="3">
-    <div class="q-num">Q3</div>
-    <div class="q-text">You toss a biased coin (P(heads) = 0.3) exactly 5 times. What is the probability of getting at least 1 head?</div>
-    <div class="q-options">
-      <div class="q-opt" data-i="0">0.30</div>
-      <div class="q-opt" data-i="1">0.50</div>
-      <div class="q-opt" data-i="2">0.85</div>
-      <div class="q-opt" data-i="3">≈ 0.83</div>
-    </div>
-    <div class="q-explain">P(at least 1) = 1 − P(0 heads) = 1 − (0.7)⁵ = 1 − 0.16807 ≈ 0.832. The complement trick: instead of adding P(1)+P(2)+...+P(5), subtract P(0) from 1.</div>
-  </div>
+<div class="qz-nav">
+<button id="prevBtn" onclick="goTab(curTab-1)" disabled>← Back</button>
+<span class="qz-pg" id="pgL">1 / 3</span>
+<button id="nextBtn" onclick="goTab(curTab+1)">Next →</button>
+</div>
 
-  <div class="q-card" data-correct="0">
-    <div class="q-num">Q4</div>
-    <div class="q-text">If X ~ B(n, p) and the mean is 12 and the variance is 3, what is p?</div>
-    <div class="q-options">
-      <div class="q-opt" data-i="0">0.75</div>
-      <div class="q-opt" data-i="1">0.25</div>
-      <div class="q-opt" data-i="2">0.50</div>
-      <div class="q-opt" data-i="3">0.60</div>
-    </div>
-    <div class="q-explain">Mean = np = 12. Variance = np(1−p) = 3. So 12(1−p) = 3 → (1−p) = 0.25 → p = 0.75. Then n = 12/0.75 = 16.</div>
-  </div>
+<div class="qz-check">
+<button id="checkBtn" onclick="grade()" disabled>Answer all 12 to check score</button>
+</div>
 
-  <div class="quiz-tier">Hard</div>
-
-  <div class="q-card" data-correct="2">
-    <div class="q-num">Q5</div>
-    <div class="q-text">A multiple choice test has 20 questions with 4 options each. A student guesses randomly. What is their expected score?</div>
-    <div class="q-options">
-      <div class="q-opt" data-i="0">10</div>
-      <div class="q-opt" data-i="1">4</div>
-      <div class="q-opt" data-i="2">5</div>
-      <div class="q-opt" data-i="3">2.5</div>
-    </div>
-    <div class="q-explain">Each question: P(correct) = 1/4 = 0.25. Expected score = np = 20 × 0.25 = 5. Pure guessing gets you 25% on average — not enough to pass.</div>
-  </div>
-
-  <div class="q-card" data-correct="1">
-    <div class="q-num">Q6</div>
-    <div class="q-text">At what value of p is the variance of a binomial distribution maximized for a given n?</div>
-    <div class="q-options">
-      <div class="q-opt" data-i="0">p = 0.25</div>
-      <div class="q-opt" data-i="1">p = 0.5</div>
-      <div class="q-opt" data-i="2">p = 0.75</div>
-      <div class="q-opt" data-i="3">p = 1.0</div>
-    </div>
-    <div class="q-explain">Variance = np(1−p). Maximized when p(1−p) is maximized. Derivative: d/dp[p − p²] = 1 − 2p = 0 → p = 0.5. Maximum uncertainty = equally likely outcomes.</div>
-  </div>
-
-  <div class="quiz-submit">
-    <button id="submitBtn" onclick="checkAnswers()" disabled>Answer all questions to check score</button>
-  </div>
-
-  <div class="quiz-result" id="result">
-    <div class="quiz-result-score" id="resultScore"></div>
-    <div class="quiz-result-label" id="resultLabel"></div>
-    <button class="quiz-reset" onclick="resetQuiz()">Try again</button>
-  </div>
+<div class="qz-result" id="res">
+<div class="qz-result-s" id="resS"></div>
+<div class="qz-result-l" id="resL"></div>
+<button onclick="reset()">Try again</button>
+</div>
 </div>
 
 <script>
 (function(){
-  var selections = {};
-  var totalQ = document.querySelectorAll('.q-card').length;
-  var answered = 0;
-  document.getElementById('total').textContent = totalQ;
-
-  document.querySelectorAll('.q-card').forEach(function(card, idx) {
-    var opts = card.querySelectorAll('.q-opt');
-    opts.forEach(function(opt) {
-      opt.addEventListener('click', function() {
-        if (opt.closest('.q-card').classList.contains('graded')) return;
-        opts.forEach(function(o) { o.classList.remove('selected'); });
-        opt.classList.add('selected');
-        var wasAnswered = selections.hasOwnProperty(idx);
-        selections[idx] = parseInt(opt.dataset.i);
-        if (!wasAnswered) answered++;
-        var btn = document.getElementById('submitBtn');
-        if (answered >= totalQ) {
-          btn.disabled = false;
-          btn.textContent = 'Check my score';
-        } else {
-          btn.textContent = answered + '/' + totalQ + ' answered';
-        }
-      });
-    });
-  });
-
-  window.checkAnswers = function() {
-    var score = 0;
-    document.querySelectorAll('.q-card').forEach(function(card, idx) {
-      var correct = parseInt(card.dataset.correct);
-      var chosen = selections[idx];
-      var opts = card.querySelectorAll('.q-opt');
-      card.classList.add('graded');
-      opts.forEach(function(o) { o.classList.add('locked'); });
-      if (chosen === correct) {
-        opts[chosen].classList.add('correct');
-        score++;
-      } else {
-        if (chosen !== undefined) opts[chosen].classList.add('wrong');
-        opts[correct].classList.add('correct');
-      }
-      card.querySelector('.q-explain').classList.add('show');
-    });
-    document.getElementById('score').textContent = score;
-    document.getElementById('scoreDisplay').classList.add('visible');
-    var r = document.getElementById('result');
-    r.classList.add('show');
-    document.getElementById('resultScore').textContent = score + ' / ' + totalQ;
-    var pct = Math.round((score / totalQ) * 100);
-    var msg = pct === 100 ? 'Perfect. You own this.' : pct >= 67 ? 'Solid understanding.' : pct >= 33 ? 'Review the sections you missed.' : 'Read through the post again — you will get it.';
-    document.getElementById('resultLabel').textContent = pct + '% — ' + msg;
-    document.getElementById('submitBtn').style.display = 'none';
-  };
-
-  window.resetQuiz = function() {
-    selections = {}; answered = 0;
-    document.getElementById('score').textContent = '0';
-    document.getElementById('scoreDisplay').classList.remove('visible');
-    document.getElementById('result').classList.remove('show');
-    document.getElementById('submitBtn').style.display = '';
-    document.getElementById('submitBtn').disabled = true;
-    document.getElementById('submitBtn').textContent = 'Answer all questions to check score';
-    document.querySelectorAll('.q-card').forEach(function(card) {
-      card.classList.remove('graded');
-    });
-    document.querySelectorAll('.q-opt').forEach(function(o) {
-      o.classList.remove('locked','correct','wrong','selected');
-    });
-    document.querySelectorAll('.q-explain').forEach(function(e) {
-      e.classList.remove('show');
-    });
-  };
-
-  var box = document.getElementById('biBox');
-  if (box) {
-    function playAnim() {
-      box.classList.add('open');
-      setTimeout(function() { box.classList.remove('open'); }, 2000);
-    }
-    setTimeout(playAnim, 800);
-    setInterval(playAnim, 5000);
-    box.addEventListener('mouseenter', function() { box.classList.add('open'); });
-    box.addEventListener('mouseleave', function() { box.classList.remove('open'); });
-  }
+var curTab=0,sel={},ans=0,graded=false;
+window.curTab=curTab;
+var cards=document.querySelectorAll('.qc');
+var tabs=document.querySelectorAll('.qz-tab');
+cards.forEach(function(c,i){
+c.querySelectorAll('.qc-o').forEach(function(o){
+o.addEventListener('click',function(){
+if(graded)return;
+c.querySelectorAll('.qc-o').forEach(function(x){x.classList.remove('sel')});
+o.classList.add('sel');
+var was=sel.hasOwnProperty(i);
+sel[i]=parseInt(o.dataset.i);
+if(!was)ans++;
+updC();
+var btn=document.getElementById('checkBtn');
+if(ans>=12){btn.disabled=false;btn.textContent='Check my score'}
+else btn.textContent=ans+'/12 answered';
+});
+});
+});
+function updC(){
+[0,1,2].forEach(function(t){
+var s=t*4,c=0;
+for(var i=s;i<s+4;i++)if(sel.hasOwnProperty(i))c++;
+document.getElementById('tc'+t).textContent=c+'/4';
+});
+}
+window.goTab=function(t){
+if(t<0||t>2)return;
+curTab=t;window.curTab=t;
+tabs.forEach(function(x,i){x.classList.toggle('active',i===t)});
+document.querySelectorAll('.qz-panel').forEach(function(p,i){p.classList.toggle('active',i===t)});
+document.getElementById('prevBtn').disabled=(t===0);
+document.getElementById('nextBtn').disabled=(t===2);
+document.getElementById('pgL').textContent=(t+1)+' / 3';
+};
+window.grade=function(){
+graded=true;
+var score=0;
+cards.forEach(function(c,i){
+var correct=parseInt(c.dataset.a);
+var chosen=sel[i];
+var opts=c.querySelectorAll('.qc-o');
+opts.forEach(function(o){o.classList.add('lk')});
+if(chosen===correct){opts[chosen].classList.add('ok');score++}
+else{if(chosen!==undefined)opts[chosen].classList.add('no');opts[correct].classList.add('ok')}
+c.querySelector('.qc-ex').classList.add('sh');
+});
+document.getElementById('sv').textContent=score;
+document.getElementById('sc').classList.add('vis');
+document.getElementById('checkBtn').style.display='none';
+var r=document.getElementById('res');r.classList.add('sh');
+document.getElementById('resS').textContent=score+' / 12';
+var pct=Math.round(score/12*100);
+var msg=pct===100?'Perfect. You own this.':pct>=75?'Solid understanding.':pct>=50?'Good start. Review what you missed.':pct>=25?'Review the post and try again.':'Read through the post carefully.';
+document.getElementById('resL').textContent=pct+'% — '+msg;
+goTab(0);
+};
+window.reset=function(){
+graded=false;sel={};ans=0;
+document.getElementById('sv').textContent='0';
+document.getElementById('sc').classList.remove('vis');
+document.getElementById('res').classList.remove('sh');
+var btn=document.getElementById('checkBtn');
+btn.style.display='';btn.disabled=true;btn.textContent='Answer all 12 to check score';
+cards.forEach(function(c){c.querySelectorAll('.qc-o').forEach(function(o){o.classList.remove('sel','lk','ok','no')});c.querySelector('.qc-ex').classList.remove('sh')});
+[0,1,2].forEach(function(t){document.getElementById('tc'+t).textContent='0/4'});
+goTab(0);
+};
+var box=document.getElementById('biBox');
+if(box){
+function playAnim(){box.classList.add('open');setTimeout(function(){box.classList.remove('open')},2000)}
+setTimeout(playAnim,800);
+setInterval(playAnim,5000);
+box.addEventListener('mouseenter',function(){box.classList.add('open')});
+box.addEventListener('mouseleave',function(){box.classList.remove('open')});
+}
 })();
 </script>
