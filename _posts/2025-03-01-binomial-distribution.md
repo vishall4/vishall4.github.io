@@ -431,8 +431,7 @@ sel[i]=parseInt(o.dataset.i);
 if(!was)ans++;
 updC();
 var btn=document.getElementById('checkBtn');
-if(ans>=12){btn.disabled=false;btn.textContent='Check my score'}
-else btn.textContent=ans+'/12 answered';
+btn.disabled=false;btn.textContent=ans+'/12 answered — Check my score';
 });
 });
 });
