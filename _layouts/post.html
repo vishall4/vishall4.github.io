@@ -3,7 +3,15 @@ layout: default
 ---
 <article class="post">
   <header class="post-header">
-    <div class="post-meta">
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="post-meta" style="margin-bottom:1rem;">
       <time>{{ page.date | date: "%B %d, %Y" }}</time>
       {% if page.tags %}
       <div class="post-tags">
@@ -13,17 +21,6 @@ layout: default
       </div>
       {% endif %}
     </div>
-    <h1 class="post-title">{{ page.title }}</h1>
-    {% if page.subtitle %}
-    <p class="post-subtitle">{{ page.subtitle }}</p>
-    {% endif %}
-  </header>
-
-  <div class="post-content">
-    {{ content }}
-  </div>
-
-  <footer class="post-footer">
     <div class="post-nav">
       {% if page.previous.url %}
       <a href="{{ page.previous.url | relative_url }}" class="post-nav-prev">
