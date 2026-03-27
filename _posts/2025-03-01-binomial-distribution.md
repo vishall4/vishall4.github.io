@@ -7,17 +7,52 @@ excerpt_text: "Most distributions in probability and statistics begin here. It's
 ---
 
 <style>
-.bi-title-anim { text-align: center; margin: 0 0 2rem; }
-.bi-title-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 2.1rem; font-weight: 700; color: #242424; display: inline-flex; align-items: baseline; gap: 0; letter-spacing: -0.02em; line-height: 1.2; }
-.bi-box-wrap { position: relative; display: inline-flex; align-items: baseline; cursor: pointer; }
-.bi-text { display: inline-block; padding: 2px 6px; border: 2px solid #242424; border-radius: 4px; font-weight: 700; position: relative; z-index: 2; background: #fff; transition: border-color 0.3s, color 0.3s; }
-.bi-box-wrap:hover .bi-text, .bi-box-wrap.open .bi-text { border-color: #534AB7; color: #534AB7; }
-.bi-lid { position: absolute; top: -8px; left: 50%; transform: translateX(-50%) rotateX(0deg); transform-origin: bottom center; width: 52px; height: 10px; background: #242424; border-radius: 3px 3px 0 0; z-index: 3; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s, background 0.3s; }
-.bi-box-wrap:hover .bi-lid, .bi-box-wrap.open .bi-lid { transform: translateX(-50%) rotateX(-120deg) translateY(-12px); opacity: 0.3; background: #534AB7; }
-.bi-people { position: absolute; top: -4px; left: 50%; transform: translateX(-50%) translateY(0px) scale(0); opacity: 0; font-size: 20px; white-space: nowrap; z-index: 1; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s, opacity 0.3s ease 0.15s; pointer-events: none; }
-.bi-box-wrap:hover .bi-people, .bi-box-wrap.open .bi-people { transform: translateX(-50%) translateY(-32px) scale(1); opacity: 1; }
-.bi-label { position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.7rem; color: #6b6b6b; opacity: 0; transition: opacity 0.3s ease 0.25s; white-space: nowrap; }
-.bi-box-wrap:hover .bi-label, .bi-box-wrap.open .bi-label { opacity: 1; }
+.post-title{display:none}
+.bi-title-anim{text-align:center;margin:-1rem 0 2rem}
+.bi-title-text{font-family:'Source Serif 4',Georgia,serif;font-size:2.1rem;font-weight:700;color:#242424;display:inline-flex;align-items:baseline;gap:0;letter-spacing:-0.02em;line-height:1.2}
+.bi-box-wrap{position:relative;display:inline-flex;align-items:baseline;cursor:pointer}
+.bi-text{display:inline-block;padding:2px 6px;border:2px solid #242424;border-radius:4px;font-weight:700;position:relative;z-index:2;background:#fff;transition:border-color .3s,color .3s}
+.bi-box-wrap:hover .bi-text,.bi-box-wrap.open .bi-text{border-color:#534AB7;color:#534AB7}
+.bi-lid{position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotateX(0deg);transform-origin:bottom center;width:52px;height:10px;background:#242424;border-radius:3px 3px 0 0;z-index:3;transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s,background .3s}
+.bi-box-wrap:hover .bi-lid,.bi-box-wrap.open .bi-lid{transform:translateX(-50%) rotateX(-120deg) translateY(-12px);opacity:.3;background:#534AB7}
+.bi-mascots{position:absolute;top:-4px;left:50%;transform:translateX(-50%) translateY(0) scale(0);opacity:0;white-space:nowrap;z-index:1;display:flex;gap:4px;transition:transform .5s cubic-bezier(.34,1.56,.64,1) .15s,opacity .3s ease .15s;pointer-events:none}
+.bi-box-wrap:hover .bi-mascots,.bi-box-wrap.open .bi-mascots{transform:translateX(-50%) translateY(-36px) scale(1);opacity:1}
+.mascot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.mascot-1{background:#EEEDFE;color:#534AB7;border:1.5px solid #AFA9EC}
+.mascot-2{background:#E1F5EE;color:#0F6E56;border:1.5px solid #5DCAA5}
+.bi-label{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.7rem;color:#6b6b6b;opacity:0;transition:opacity .3s ease .25s;white-space:nowrap}
+.bi-box-wrap:hover .bi-label,.bi-box-wrap.open .bi-label{opacity:1}
+.quiz-wrap{margin-top:3rem;padding-top:2rem;border-top:1px solid #e6e6e6}
+.quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #f2f2f2}
+.quiz-title{font-family:'Source Serif 4',Georgia,serif;font-size:1.4rem;font-weight:700;color:#242424}
+.quiz-score{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.85rem;color:#6b6b6b;display:none}
+.quiz-score span{font-weight:600;color:#242424;font-size:1.1rem}
+.quiz-score.visible{display:block}
+.quiz-tier{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.7rem;font-weight:500;color:#6b6b6b;text-transform:uppercase;letter-spacing:.08em;margin:1.5rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #f2f2f2}
+.q-card{margin-bottom:1.25rem}
+.q-text{font-family:'Source Serif 4',Georgia,serif;font-size:1rem;color:#242424;margin-bottom:.6rem;line-height:1.6}
+.q-num{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.75rem;font-weight:500;color:#6b6b6b;margin-bottom:.25rem}
+.q-options{display:flex;flex-direction:column;gap:6px}
+.q-opt{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.85rem;padding:8px 12px;border:1px solid #e6e6e6;border-radius:6px;cursor:pointer;color:#242424;background:#fff;transition:border-color .15s,background .15s;line-height:1.5}
+.q-opt:hover:not(.locked){border-color:#bbb;background:#f9f9f9}
+.q-opt.selected{border-color:#534AB7;background:#EEEDFE;color:#3C3489}
+.q-opt.locked{cursor:default}
+.q-opt.correct{border-color:#1D9E75;background:#E1F5EE;color:#085041}
+.q-opt.wrong{border-color:#E24B4A;background:#FCEBEB;color:#791F1F}
+.q-opt.correct.locked,.q-opt.wrong.locked{opacity:1}
+.q-opt.locked:not(.correct):not(.wrong):not(.selected){opacity:.5}
+.q-explain{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.82rem;color:#6b6b6b;margin-top:.5rem;line-height:1.5;display:none;padding:8px 12px;background:#f9f9f9;border-radius:6px}
+.q-explain.show{display:block}
+.quiz-submit{text-align:center;margin-top:2rem}
+.quiz-submit button{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.9rem;font-weight:500;padding:10px 28px;border:1px solid #242424;border-radius:6px;background:#242424;color:#fff;cursor:pointer;transition:opacity .15s}
+.quiz-submit button:hover{opacity:.85}
+.quiz-submit button:disabled{opacity:.4;cursor:default}
+.quiz-result{text-align:center;padding:1.5rem;margin-top:1.5rem;border:1px solid #e6e6e6;border-radius:8px;display:none}
+.quiz-result.show{display:block}
+.quiz-result-score{font-family:'Source Serif 4',Georgia,serif;font-size:2rem;font-weight:700}
+.quiz-result-label{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.85rem;color:#6b6b6b;margin-top:.25rem}
+.quiz-reset{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.82rem;padding:8px 20px;border:1px solid #e6e6e6;border-radius:6px;background:#fff;color:#242424;cursor:pointer;margin-top:1rem;transition:border-color .15s}
+.quiz-reset:hover{border-color:#bbb}
 </style>
 
 <div class="bi-title-anim">
@@ -25,24 +60,14 @@ excerpt_text: "Most distributions in probability and statistics begin here. It's
     <span class="bi-box-wrap" id="biBox">
       <span class="bi-lid"></span>
       <span class="bi-text">Bi</span>
-      <span class="bi-people">😊😊</span>
+      <span class="bi-mascots">
+        <span class="mascot mascot-1">1</span>
+        <span class="mascot mascot-2">2</span>
+      </span>
       <span class="bi-label">two outcomes</span>
     </span><span>nomial Distribution</span>
   </div>
 </div>
-
-<script>
-var box = document.getElementById('biBox');
-var opened = false;
-box.addEventListener('click', function() {
-  opened = !opened;
-  if (opened) { box.classList.add('open'); } else { box.classList.remove('open'); }
-});
-setTimeout(function() {
-  box.classList.add('open');
-  setTimeout(function() { box.classList.remove('open'); }, 2000);
-}, 800);
-</script>
 
 Most of the distributions you'll encounter in probability and statistics begin with the binomial distribution. It's a discrete distribution — and here's something worth keeping in mind: when you add up infinitely many discrete steps, you start approaching something continuous. That idea will matter later.
 
@@ -325,6 +350,191 @@ But what happens when the "trials" aren't countable? What if someone could walk 
 
 The answer: push n to infinity while keeping the average rate constant. The formula that falls out on the other side is the **Poisson distribution** — and it's built entirely on what we've covered here.
 
+*Next: [Poisson Is Just Binomial Taken to Infinity](/poisson-distribution/)*
+
 ---
 
-*Next: [Poisson Is Just Binomial Taken to Infinity](/poisson-distribution/)*
+<div class="quiz-wrap">
+  <div class="quiz-header">
+    <div class="quiz-title">Test Your Understanding</div>
+    <div class="quiz-score" id="scoreDisplay"><span id="score">0</span> / <span id="total">6</span></div>
+  </div>
+  <p style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.85rem;color:#6b6b6b;margin-bottom:1rem;">Answer all 6 questions, then check your score. No peeking.</p>
+
+  <div class="quiz-tier">Easy</div>
+
+  <div class="q-card" data-correct="2">
+    <div class="q-num">Q1</div>
+    <div class="q-text">You toss a fair coin 3 times. What is the probability of getting exactly 2 heads?</div>
+    <div class="q-options">
+      <div class="q-opt" data-i="0">1/8</div>
+      <div class="q-opt" data-i="1">1/4</div>
+      <div class="q-opt" data-i="2">3/8</div>
+      <div class="q-opt" data-i="3">1/2</div>
+    </div>
+    <div class="q-explain">C(3,2) × 0.5² × 0.5¹ = 3 × 0.25 × 0.5 = 3/8. Three ways to place 2 heads in 3 tosses, each arrangement has probability 1/8.</div>
+  </div>
+
+  <div class="q-card" data-correct="1">
+    <div class="q-num">Q2</div>
+    <div class="q-text">A coin has P(heads) = 0.5. You toss it 6 times. What is the expected number of heads?</div>
+    <div class="q-options">
+      <div class="q-opt" data-i="0">2</div>
+      <div class="q-opt" data-i="1">3</div>
+      <div class="q-opt" data-i="2">4</div>
+      <div class="q-opt" data-i="3">6</div>
+    </div>
+    <div class="q-explain">Mean = np = 6 × 0.5 = 3. On average, you'd expect 3 heads in 6 fair coin tosses.</div>
+  </div>
+
+  <div class="quiz-tier">Medium</div>
+
+  <div class="q-card" data-correct="3">
+    <div class="q-num">Q3</div>
+    <div class="q-text">You toss a biased coin (P(heads) = 0.3) exactly 5 times. What is the probability of getting at least 1 head?</div>
+    <div class="q-options">
+      <div class="q-opt" data-i="0">0.30</div>
+      <div class="q-opt" data-i="1">0.50</div>
+      <div class="q-opt" data-i="2">0.85</div>
+      <div class="q-opt" data-i="3">≈ 0.83</div>
+    </div>
+    <div class="q-explain">P(at least 1) = 1 − P(0 heads) = 1 − (0.7)⁵ = 1 − 0.16807 ≈ 0.832. The complement trick: instead of adding P(1)+P(2)+...+P(5), subtract P(0) from 1.</div>
+  </div>
+
+  <div class="q-card" data-correct="0">
+    <div class="q-num">Q4</div>
+    <div class="q-text">If X ~ B(n, p) and the mean is 12 and the variance is 3, what is p?</div>
+    <div class="q-options">
+      <div class="q-opt" data-i="0">0.75</div>
+      <div class="q-opt" data-i="1">0.25</div>
+      <div class="q-opt" data-i="2">0.50</div>
+      <div class="q-opt" data-i="3">0.60</div>
+    </div>
+    <div class="q-explain">Mean = np = 12. Variance = np(1−p) = 3. So 12(1−p) = 3 → (1−p) = 0.25 → p = 0.75. Then n = 12/0.75 = 16.</div>
+  </div>
+
+  <div class="quiz-tier">Hard</div>
+
+  <div class="q-card" data-correct="2">
+    <div class="q-num">Q5</div>
+    <div class="q-text">A multiple choice test has 20 questions with 4 options each. A student guesses randomly. What is their expected score?</div>
+    <div class="q-options">
+      <div class="q-opt" data-i="0">10</div>
+      <div class="q-opt" data-i="1">4</div>
+      <div class="q-opt" data-i="2">5</div>
+      <div class="q-opt" data-i="3">2.5</div>
+    </div>
+    <div class="q-explain">Each question: P(correct) = 1/4 = 0.25. Expected score = np = 20 × 0.25 = 5. Pure guessing gets you 25% on average — not enough to pass.</div>
+  </div>
+
+  <div class="q-card" data-correct="1">
+    <div class="q-num">Q6</div>
+    <div class="q-text">At what value of p is the variance of a binomial distribution maximized for a given n?</div>
+    <div class="q-options">
+      <div class="q-opt" data-i="0">p = 0.25</div>
+      <div class="q-opt" data-i="1">p = 0.5</div>
+      <div class="q-opt" data-i="2">p = 0.75</div>
+      <div class="q-opt" data-i="3">p = 1.0</div>
+    </div>
+    <div class="q-explain">Variance = np(1−p). Maximized when p(1−p) is maximized. Derivative: d/dp[p − p²] = 1 − 2p = 0 → p = 0.5. Maximum uncertainty = equally likely outcomes.</div>
+  </div>
+
+  <div class="quiz-submit">
+    <button id="submitBtn" onclick="checkAnswers()" disabled>Answer all questions to check score</button>
+  </div>
+
+  <div class="quiz-result" id="result">
+    <div class="quiz-result-score" id="resultScore"></div>
+    <div class="quiz-result-label" id="resultLabel"></div>
+    <button class="quiz-reset" onclick="resetQuiz()">Try again</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var selections = {};
+  var totalQ = document.querySelectorAll('.q-card').length;
+  var answered = 0;
+  document.getElementById('total').textContent = totalQ;
+
+  document.querySelectorAll('.q-card').forEach(function(card, idx) {
+    var opts = card.querySelectorAll('.q-opt');
+    opts.forEach(function(opt) {
+      opt.addEventListener('click', function() {
+        if (opt.closest('.q-card').classList.contains('graded')) return;
+        opts.forEach(function(o) { o.classList.remove('selected'); });
+        opt.classList.add('selected');
+        var wasAnswered = selections.hasOwnProperty(idx);
+        selections[idx] = parseInt(opt.dataset.i);
+        if (!wasAnswered) answered++;
+        var btn = document.getElementById('submitBtn');
+        if (answered >= totalQ) {
+          btn.disabled = false;
+          btn.textContent = 'Check my score';
+        } else {
+          btn.textContent = answered + '/' + totalQ + ' answered';
+        }
+      });
+    });
+  });
+
+  window.checkAnswers = function() {
+    var score = 0;
+    document.querySelectorAll('.q-card').forEach(function(card, idx) {
+      var correct = parseInt(card.dataset.correct);
+      var chosen = selections[idx];
+      var opts = card.querySelectorAll('.q-opt');
+      card.classList.add('graded');
+      opts.forEach(function(o) { o.classList.add('locked'); });
+      if (chosen === correct) {
+        opts[chosen].classList.add('correct');
+        score++;
+      } else {
+        if (chosen !== undefined) opts[chosen].classList.add('wrong');
+        opts[correct].classList.add('correct');
+      }
+      card.querySelector('.q-explain').classList.add('show');
+    });
+    document.getElementById('score').textContent = score;
+    document.getElementById('scoreDisplay').classList.add('visible');
+    var r = document.getElementById('result');
+    r.classList.add('show');
+    document.getElementById('resultScore').textContent = score + ' / ' + totalQ;
+    var pct = Math.round((score / totalQ) * 100);
+    var msg = pct === 100 ? 'Perfect. You own this.' : pct >= 67 ? 'Solid understanding.' : pct >= 33 ? 'Review the sections you missed.' : 'Read through the post again — you will get it.';
+    document.getElementById('resultLabel').textContent = pct + '% — ' + msg;
+    document.getElementById('submitBtn').style.display = 'none';
+  };
+
+  window.resetQuiz = function() {
+    selections = {}; answered = 0;
+    document.getElementById('score').textContent = '0';
+    document.getElementById('scoreDisplay').classList.remove('visible');
+    document.getElementById('result').classList.remove('show');
+    document.getElementById('submitBtn').style.display = '';
+    document.getElementById('submitBtn').disabled = true;
+    document.getElementById('submitBtn').textContent = 'Answer all questions to check score';
+    document.querySelectorAll('.q-card').forEach(function(card) {
+      card.classList.remove('graded');
+    });
+    document.querySelectorAll('.q-opt').forEach(function(o) {
+      o.classList.remove('locked','correct','wrong','selected');
+    });
+    document.querySelectorAll('.q-explain').forEach(function(e) {
+      e.classList.remove('show');
+    });
+  };
+
+  var box = document.getElementById('biBox');
+  if (box) {
+    function playAnim() {
+      box.classList.add('open');
+      setTimeout(function() { box.classList.remove('open'); }, 2000);
+    }
+    setTimeout(playAnim, 800);
+    setInterval(playAnim, 5000);
+    box.addEventListener('mouseenter', function() { box.classList.add('open'); });
+    box.addEventListener('mouseleave', function() { box.classList.remove('open'); });
+  }
+})();
+</script>
