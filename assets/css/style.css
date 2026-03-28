@@ -571,3 +571,35 @@ body {
   color: var(--text-muted);
   line-height: 1.8;
 }
+/* ---- Nav Hover Effects ---- */
+.nav-links a {
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: #1a8917;
+}
+
+.nav-links a.active {
+  color: var(--text);
+}
+
+/* ---- Social Icons ---- */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.social-icons a {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.social-icons a:hover {
+  color: var(--text);
+}
