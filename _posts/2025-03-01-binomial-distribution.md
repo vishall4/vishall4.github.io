@@ -8,7 +8,7 @@ excerpt_text: "Most distributions in probability and statistics begin here. It's
 
 <style>
 .post-title{display:none !important}
-.bi-title-anim{text-align:center;margin:-1rem 0 2rem}
+.bi-title-anim{text-align:center;margin:1.5rem 0 2rem}
 .bi-title-text{font-family:'Source Serif 4',Georgia,serif;font-size:2.1rem;font-weight:700;color:#242424;display:inline-flex;align-items:baseline;gap:0;letter-spacing:-0.02em;line-height:1.2}
 .bi-box-wrap{position:relative;display:inline-flex;align-items:baseline;cursor:pointer}
 .bi-text{display:inline-block;padding:2px 6px;border:2px solid #242424;border-radius:4px;font-weight:700;position:relative;z-index:2;background:#fff;transition:border-color .3s,color .3s}
@@ -16,7 +16,7 @@ excerpt_text: "Most distributions in probability and statistics begin here. It's
 .bi-lid{position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotateX(0deg);transform-origin:bottom center;width:52px;height:10px;background:#242424;border-radius:3px 3px 0 0;z-index:3;transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s,background .3s}
 .bi-box-wrap:hover .bi-lid,.bi-box-wrap.open .bi-lid{transform:translateX(-50%) rotateX(-120deg) translateY(-12px);opacity:.3;background:#534AB7}
 .bi-mascots{position:absolute;top:-4px;left:50%;transform:translateX(-50%) translateY(0) scale(0);opacity:0;white-space:nowrap;z-index:1;display:flex;gap:4px;transition:transform .5s cubic-bezier(.34,1.56,.64,1) .15s,opacity .3s ease .15s;pointer-events:none}
-.bi-box-wrap:hover .bi-mascots,.bi-box-wrap.open .bi-mascots{transform:translateX(-50%) translateY(-36px) scale(1);opacity:1}
+.bi-box-wrap:hover .bi-mascots,.bi-box-wrap.open .bi-mascots{transform:translateX(-50%) translateY(-44px) scale(1);opacity:1}
 .mascot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
 .mascot-1{background:#EEEDFE;color:#534AB7;border:1.5px solid #AFA9EC}
 .mascot-2{background:#E1F5EE;color:#0F6E56;border:1.5px solid #5DCAA5}
@@ -297,6 +297,67 @@ You'd expect about 50 heads. That should feel obvious — and that's the point. 
 The standard deviation is σ = √25 = 5. So most of the time, you'll get somewhere between 45 and 55 heads. The variance tells you how spread out the results are around the mean.
 
 Notice something important: the mean is **np** and the variance is **np(1−p)**. Since (1−p) is always less than or equal to 1, the variance is always **less than or equal to** the mean for a binomial distribution. Keep this fact in your back pocket — when we get to the Poisson distribution, we'll see something different happen: mean and variance become *equal*. That difference has real meaning.
+
+---
+
+## See It For Yourself
+
+Everything we've covered — the formula, the counting, the mean, the variance — comes alive when you can actually see the distribution move.
+
+Use the sliders below. **n** is the number of coin tosses, **p** is the probability of heads on each toss. When you set n = 5 and p = 0.5, you're tossing 5 fair coins — the tallest bar shows the most likely number of heads. Slide p to 0.3 and watch the distribution skew left (heads become rarer). Slide n up to 25 and notice how the shape starts to look like a bell curve — that's no accident, and we'll get to why later.
+
+The mean, variance, and standard deviation update live — check them against the formulas: μ = np, σ² = np(1-p). They should match exactly.
+
+<div style="margin:2rem 0;padding:1.5rem;border:1px solid #e6e6e6;border-radius:8px;background:#fff;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;">
+<div style="display:flex;gap:2rem;margin-bottom:1.25rem;flex-wrap:wrap;">
+<div style="flex:1;min-width:200px;">
+<div style="display:flex;justify-content:space-between;font-size:13px;color:#6b6b6b;margin-bottom:4px;">Trials (n) <span id="nV" style="font-weight:600;color:#242424;font-size:15px;">10</span></div>
+<input type="range" min="1" max="30" value="10" id="nS" style="width:100%;">
+</div>
+<div style="flex:1;min-width:200px;">
+<div style="display:flex;justify-content:space-between;font-size:13px;color:#6b6b6b;margin-bottom:4px;">Probability (p) <span id="pV" style="font-weight:600;color:#242424;font-size:15px;">0.50</span></div>
+<input type="range" min="0" max="100" value="50" id="pS" style="width:100%;">
+</div>
+</div>
+<div id="bChart" style="position:relative;height:220px;display:flex;align-items:flex-end;gap:2px;padding:0 0 22px;"></div>
+<div style="display:flex;gap:2rem;margin-top:0.75rem;flex-wrap:wrap;font-size:13px;color:#6b6b6b;">
+<div>Mean: <span id="bMean" style="font-weight:600;color:#242424;">5.0</span></div>
+<div>Variance: <span id="bVar" style="font-weight:600;color:#242424;">2.50</span></div>
+<div>Std Dev: <span id="bStd" style="font-weight:600;color:#242424;">1.58</span></div>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+function C(n,k){if(k>n||k<0)return 0;if(k===0||k===n)return 1;var r=1;for(var i=0;i<k;i++){r*=(n-i);r/=(i+1)}return r}
+function bP(k,n,p){return C(n,k)*Math.pow(p,k)*Math.pow(1-p,n-k)}
+var nS=document.getElementById('nS'),pS=document.getElementById('pS'),ch=document.getElementById('bChart');
+function upd(){
+var n=parseInt(nS.value),p=parseInt(pS.value)/100;
+document.getElementById('nV').textContent=n;
+document.getElementById('pV').textContent=p.toFixed(2);
+var pr=[],mx=0;
+for(var k=0;k<=n;k++){var pk=bP(k,n,p);pr.push(pk);if(pk>mx)mx=pk}
+var mn=n*p,vr=n*p*(1-p);
+document.getElementById('bMean').textContent=mn.toFixed(1);
+document.getElementById('bVar').textContent=vr.toFixed(2);
+document.getElementById('bStd').textContent=Math.sqrt(vr).toFixed(2);
+var h='',bH=198;
+for(var k=0;k<=n;k++){
+var ht=mx>0?Math.round((pr[k]/mx)*bH):0;
+var pc=(pr[k]*100).toFixed(1);
+h+='<div style="flex:1;display:flex;flex-direction:column;align-items:center;position:relative;height:100%;" onmouseenter="this.querySelector(\'.tt\').style.opacity=1" onmouseleave="this.querySelector(\'.tt\').style.opacity=0">';
+h+='<div class="tt" style="position:absolute;top:0;left:50%;transform:translateX(-50%);font-size:10px;font-weight:500;color:#242424;background:#f9f9f9;padding:2px 6px;border-radius:4px;border:1px solid #e6e6e6;white-space:nowrap;opacity:0;transition:opacity .15s;pointer-events:none;">k='+k+': '+pc+'%</div>';
+h+='<div style="width:100%;border-radius:2px 2px 0 0;position:absolute;bottom:22px;height:'+ht+'px;background:hsl('+(210+Math.round((k/n)*40))+','+(50+Math.round(pr[k]/mx*30))+'%,55%);transition:height .3s;"></div>';
+if(n<=20)h+='<div style="position:absolute;bottom:0;font-size:9px;color:#6b6b6b;">'+k+'</div>';
+else if(k%5===0)h+='<div style="position:absolute;bottom:0;font-size:9px;color:#6b6b6b;">'+k+'</div>';
+h+='</div>'}
+ch.innerHTML=h}
+nS.addEventListener('input',upd);pS.addEventListener('input',upd);upd();
+})();
+</script>
 
 ---
 
