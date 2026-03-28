@@ -3,21 +3,41 @@ layout: default
 title: Home
 ---
 <section class="home-hero">
-  <h1>Teaching to build <span class="accent">intuition</span> and perspective, beyond just textbook definitions.</h1>
-  <p class="tagline">I'm Vishal. I've spent the better part of five years studying mathematics — from competitive exams to machine learning. If there's one thing I've learned, it's that this field is mostly maths under the hood, and most of it gets taught incomplete.</p>
-  <p class="tagline">These are my notes, breakdowns, and findings — intuition first, formulas second. Starting with the fundamentals of data science and machine learning.</p>
+  <h1>I'm Vishal.</h1>
+  <p class="tagline">ML practitioner studying mathematics for data science and machine learning. I've spent the better part of five years with maths — from competitive exams to deep learning. Currently pursuing Data Science from IIT Jodhpur.</p>
+  <p class="tagline" style="margin-top:0.5rem;">Open to ML/Data Science internships. <a href="https://drive.google.com/file/d/1cytqP51Q1V3keW_5WyT_B-KKEAJuzqpE/view" target="_blank" style="color:#1a8917;text-decoration:underline;text-underline-offset:3px;">Resume</a> · <a href="https://github.com/vishall4" target="_blank" style="color:#1a8917;text-decoration:underline;text-underline-offset:3px;">GitHub</a> · <a href="https://linkedin.com/in/vishal50" target="_blank" style="color:#1a8917;text-decoration:underline;text-underline-offset:3px;">LinkedIn</a></p>
+</section>
+
+<section class="projects-section">
+  <h2 class="section-title">Projects</h2>
+
+  <div class="project-card">
+    <h3 class="project-title"><a href="https://github.com/vishall4" target="_blank">FASEROH: Neural Taylor Expansion Prediction</a></h3>
+    <p class="project-meta">PyTorch · Transformer · LSTM · SymPy · GSoC 2026 — ML4Sci</p>
+    <p class="project-desc">Built seq2seq models to translate mathematical functions into Taylor series expansions. Designed a math-aware tokenizer (34 tokens) achieving 97x faster convergence. LSTM+Attention (3.8M params): 25.4% exact match, 93.2% BLEU-1 — beat mentor baseline (val loss 1.51 vs 2.35). Transformer (7.4M params) with warmup+cosine LR, beam search decoding. Trained on NVIDIA H100.</p>
+  </div>
+
+  <div class="project-card">
+    <h3 class="project-title"><a href="https://github.com/vishall4" target="_blank">Programming Language Classification — BiLSTM + Attention</a></h3>
+    <p class="project-meta">PyTorch · NLP · Deep Learning</p>
+    <p class="project-desc">Deep learning model to classify source code snippets across 11 programming languages. Achieved 92-96% F1-score using custom BiLSTM with Attention mechanism (50M params). Built multi-source data pipeline from Stack Overflow and GitHub APIs with 50K+ code snippets.</p>
+  </div>
+
+  <div class="project-card">
+    <h3 class="project-title"><a href="https://github.com/vishall4/apple-classification" target="_blank">Apple Variety Classification — Transfer Learning Study</a></h3>
+    <p class="project-meta">PyTorch · Computer Vision · CNN</p>
+    <p class="project-desc">Compared 5 CNN architectures for image classification on limited data. Discovered negative transfer — PyramidNet-18 trained from scratch outperformed pre-trained ResNet, EfficientNet, and DenseNet on 800 hand-curated images. Achieved 64.29% accuracy (+16% improvement).</p>
+  </div>
 </section>
 
 <section class="posts-section">
-  <h2 class="posts-section-title">Latest Posts</h2>
+  <h2 class="section-title">Writing</h2>
   <ul class="post-list">
     {% for post in site.posts %}
     <li class="post-list-item">
       <div class="post-list-date">{{ post.date | date: "%B %d, %Y" }}</div>
       <h3 class="post-list-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      {% if post.excerpt_text %}
       <p class="post-list-excerpt">{{ post.excerpt_text }}</p>
-      {% endif %}
     </li>
     {% endfor %}
   </ul>
