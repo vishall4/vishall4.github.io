@@ -25,7 +25,23 @@ permalink: /about/
   </div>
 
   <div class="about-section">
+    <h2>Education & Certifications</h2>
+    <p>Executive Diploma in Data Science & Applied ML — IIT Jodhpur (2025–2026)</p>
+    <p>Deep Learning Specialization — DeepLearning.AI</p>
+    <p>Machine Learning Specialization — Stanford University & DeepLearning.AI</p>
+    <p>Mathematics for Machine Learning Specialization — DeepLearning.AI</p>
+    <p>B.Com — Sri Aurobindo College, Delhi University</p>
+  </div>
+
+  <div class="about-section">
+    <h2>Tech Stack</h2>
+    <p>Python · PyTorch · TensorFlow · scikit-learn · SQL · PostgreSQL · Pandas · NumPy · Matplotlib · FastAPI · Streamlit · Git · GitHub</p>
+  </div>
+
+  <div class="about-section">
     <h2>Get In Touch</h2>
-    <p>I'm most active on Twitter/X and GitHub. If you want to follow along, suggest topics, or just say hi — find me on the links below.</p>
+    <p>Open to ML/Data Science internships and entry-level roles.</p>
+    <p>Email: <a href="mailto:vishallohiya50@gmail.com">vishallohiya50@gmail.com</a> · Phone: +91 8076452623</p>
+    <p><a href="https://github.com/vishall4" target="_blank">GitHub</a> · <a href="https://linkedin.com/in/vishal50" target="_blank">LinkedIn</a> · <a href="https://x.com/vishallohiya77" target="_blank">Twitter/X</a> · <a href="https://drive.google.com/file/d/1cytqP51Q1V3keW_5WyT_B-KKEAJuzqpE/view" target="_blank">Resume</a></p>
   </div>
 </div>
